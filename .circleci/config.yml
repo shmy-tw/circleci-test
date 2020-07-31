@@ -12,7 +12,7 @@ jobs:
       - image: circleci/node:12.0
     steps:
       - checkout
-      - echo "build"
+      - run: echo "build"
 
 workflows:
   version: 2
