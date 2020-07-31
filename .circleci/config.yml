@@ -17,6 +17,6 @@ workflows:
     - build
   serial:
     - test
-    - build
+    - build:
         requires:
           - test
