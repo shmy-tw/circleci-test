@@ -17,9 +17,4 @@ workflows:
     jobs:
       - test
       - build
-  serial:
-    jobs:
-      - test
-      - build:
-        requires:
-          - test
+
