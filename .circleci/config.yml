@@ -12,6 +12,7 @@ jobs:
       - echo "build"
 
 workflows:
+  version: 2
   parallel:
     - test
     - build
