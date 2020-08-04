@@ -34,6 +34,7 @@ workflows:
     triggers:
       - schedule:
           corn: "* * * * *"
+          <<: *only-pre-branches
     jobs:
       - corn-test
   serial:
