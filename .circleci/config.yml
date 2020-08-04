@@ -41,17 +41,23 @@ workflows:
 #          <<: *only-pre-branches
 #    jobs:
 #      - cron-test
-  serial:
+  qa:
     jobs:
       - test:
+          context: qa-context
           <<: *only-pre-branches
-      - approval:
-          type: approval
-          requires:
-            - test
-      - build:
+  staging:
+    jobs:
+      - test:
+          context: staging-context
           <<: *only-pre-branches
-          requires:
-            - approval
+#      - approval:
+#          type: approval
+#          requires:
+#            - test
+#      - build:
+#          <<: *only-pre-branches
+#          requires:
+#            - approval
 
 
