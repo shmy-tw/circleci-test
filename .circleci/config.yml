@@ -16,13 +16,16 @@ jobs:
 
 workflows:
   version: 2
-  parallel:
-    jobs:
-      - test
-      - build
+#  parallel:
+#    jobs:
+#      - test
+#      - build
   serial:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              only: master
       - build:
           requires:
             - test
