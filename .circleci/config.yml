@@ -1,3 +1,7 @@
+only-pre-branches: &only-pre-branches
+  filters:
+    branches:
+      only: /^pre.*/
 version: 2
 jobs:
   test:
@@ -23,15 +27,9 @@ workflows:
   serial:
     jobs:
       - test:
-          filters:
-            branches:
-              only: /^pre.*/
-              ignore: /^pre.*/
+          <<: *only-pre-branches
       - build:
-          filters:
-            branches:
-              only: /^pre.*/
-              ignore: /^pre.*/
+          <<: *only-pre-branches
 #          requires:
 #            - test
 
