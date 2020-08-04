@@ -1,10 +1,7 @@
 only-pre-branches: &only-pre-branches
   filters:
-    tags:
-      only:
-        - v1.1
-        - v1.2
-        - v1.3
+    branches:
+      only: master
 #    branches:
 #      only: /^pre.*/
 version: 2
@@ -22,13 +19,23 @@ jobs:
     steps:
       - checkout
       - run: echo "build successful! "
-
+  corn-test:
+    docker:
+      - image: circleci/node:12.0
+    steps:
+      - run: curl https://www.baidu.com
 workflows:
   version: 2
 #  parallel:
 #    jobs:
 #      - test
 #      - build
+  nightly:
+    triggers:
+      - schedule:
+          corn: "* * * * *"
+    jobs:
+      - corn-test
   serial:
     jobs:
       - test:
