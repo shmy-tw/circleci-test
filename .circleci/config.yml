@@ -1,7 +1,9 @@
 only-pre-branches: &only-pre-branches
   filters:
-    branches:
-      only: /^pre.*/
+    tags:
+      only: v1.1
+#    branches:
+#      only: /^pre.*/
 version: 2
 jobs:
   test:
