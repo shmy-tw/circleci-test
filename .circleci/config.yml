@@ -41,8 +41,12 @@ workflows:
     jobs:
       - test:
           <<: *only-pre-branches
+      - approval:
+          type: approval
+          requires:
+            - test
       - build:
           <<: *only-pre-branches
-#          requires:
-#            - test
+          requires:
+            - approval
 
