@@ -25,11 +25,11 @@ workflows:
       - test:
           filters:
             branches:
-              only: /^pre.*/
+              ignore: /^pre.*/
       - build:
           filters:
             branches:
-              only: /^pre.*/
+              ignore: /^pre.*/
 #          requires:
 #            - test
 
