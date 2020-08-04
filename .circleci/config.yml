@@ -25,11 +25,15 @@ workflows:
       - test:
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - dev2
       - build:
           filters:
             branches:
-              only: master
+              only:
+                - master
+                - dev2
 #          requires:
 #            - test
 
