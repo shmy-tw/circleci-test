@@ -25,15 +25,11 @@ workflows:
       - test:
           filters:
             branches:
-              only:
-                - master
-                - dev2
+              only: /^pre.*/
       - build:
           filters:
             branches:
-              only:
-                - master
-                - dev2
+              only: /^pre.*/
 #          requires:
 #            - test
 
