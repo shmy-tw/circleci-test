@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run: curl $API_URL
       - run: curl ${API_URL}
-      - run: curl https://www.jd.com
+      - run: curl https://www.baidu.com
       - run: npm install
       - run: npm test
   build:
